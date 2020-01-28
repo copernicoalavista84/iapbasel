@@ -1,0 +1,20 @@
+<?php
+//OB START
+ob_start();
+//SESSION START
+session_start();
+//ERROR REPORTING
+error_reporting(1);
+//Database connection
+if($_SERVER['HTTP_HOST']=='localhost' || $_SERVER['HTTP_HOST']=='192.168.2.27'){
+$dbh=mysqli_connect ("localhost", "root", "") or die ('I cannot connect to the database because: ' . mysql_error());
+mysqli_select_db ($dbh,"db429586031");
+}
+else{
+//$dbh=mysqli_connect ("localhost", "posspooj_iapbas", "iapbas123#*") or die ('I cannot connect to the database because: ' . mysql_error());
+$dbh=mysqli_connect ("db429586031.db.1and1.com", "dbo429586031", "Basel2012.","db429586031") or die ('I cannot connect to the database because: ' . mysqli_error());
+mysqli_select_db ($dbh,"db429586031");  
+//mysql_select_db ("posspooj_iapbas");  
+}
+require_once('functions.php');
+?>

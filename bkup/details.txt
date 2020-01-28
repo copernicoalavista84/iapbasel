@@ -1,0 +1,3 @@
+http://prod3.iapbasel.com/phpMyAdmin/
+                User Name: dbo429586031
+                Pass word: basel2012

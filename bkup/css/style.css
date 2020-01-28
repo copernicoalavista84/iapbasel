@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    font-family: "Trebuchet MS",Arial,Sans-Serif;
+	font-size:13px;
+	font-weight:normal;
+	margin:0 auto;
+}
+h1, h2 {
+    font-weight: bold;
+	margin:0;
+	padding:0;
+	font-size:20px;
+	color:#005F8C;
+}
+a{
+	color:#000;
+}
+a:hover{
+	color:#EC0076;
+}
+input[type=text], input[type=password], select{
+	padding:3px;
+	border:1px solid #B9B9B9;
+}
+div.error {
+	background: url("../images/error.png") no-repeat scroll 0 9px;
+	color: #D00;
+}
+div.success {
+	background: url("../images/accept.png") no-repeat scroll 0 9px;
+	color: #00773C;
+}
+div.delete {
+	background: url("../images/delete.png") no-repeat scroll 0 9px;
+	color: #D00;
+}
+div.msg {
+	padding: 14px 0 10px 40px;
+}
+.savebutton {
+    background: url("../images/save.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+	width:16px;
+    outline: medium none;
+    overflow: visible;
+}
+.savetxt{
+	width:30px;
+	text-align:center;
+}
+.wrapper{
+	width:820px;
+	margin:0 auto;
+	position:relative;
+}
+.logintopbg{
+	background:url(../images/logintop.png) no-repeat;
+	width:393px;
+	height:14px;
+	margin:0 auto;
+	margin-top:100px;
+}
+.logincenbg{
+	background:url(../images/loginbg.png) repeat-y;
+	width:393px;
+	margin:0 auto;
+}
+.loginbotbg{
+	background:url("../images/loginbot.png") no-repeat scroll -1px 0 transparent;
+	width:393px;
+	height:14px;
+	margin:0 auto;
+	margin-bottom:45px;
+}
+.contenttopbg{
+	background:url(../images/contenttopbg.png) no-repeat;
+	width:814px;
+	height:12px;
+	margin:0 auto;
+	margin-top:10px;
+}
+.contentcenbg{
+	background:url(../images/centerbg.png) repeat-y;
+	width:794px;
+	margin:0 auto;
+	padding:20px 10px;
+}
+.contentbotbg{
+	background:url("../images/contentbotbg.png") no-repeat scroll 0 0 transparent;
+	width:814px;
+	height:12px;
+	margin:0 auto;
+	margin-bottom:45px;
+}
+.content td, .content th{
+	border:1px solid #ddd;
+}
+#footer {
+    background: url("../images/search-bg.png") repeat-x scroll 0 0 transparent;
+    bottom: 0;
+    color: #000000;
+    font-size: 13px;
+    height: 24px;
+    margin-top: 30px;
+    padding-top: 7px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 4;
+}
