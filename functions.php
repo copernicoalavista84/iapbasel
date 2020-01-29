@@ -51,7 +51,7 @@ function setflash($msg) {
 
 //CHECKFLASH
 function findFlash() {
-    $message = $_SESSION['FLASH'];
+    $message = @$_SESSION['FLASH'];
     return $message;
 }
 
