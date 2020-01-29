@@ -1,7 +1,7 @@
 <?php 
 require_once("config.php");
-checklogin();
-$user=mysql_fetch_array(mysql_query("select * from users where uid=".$_SESSION['login']));
+checklogin($con);
+$user=mysqli_fetch_array(mysqli_query($con, "select * from users where uid=".$_SESSION['login']),MYSQLI_ASSOC);
 ?>
 <?php require_once('header.php'); ?>
 <div class="contenttopbg"></div>

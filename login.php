@@ -5,7 +5,7 @@ if(isset($_SESSION['email']) &&  isset($_SESSION['password']))
 if(isset($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	login($_POST);
+	login($_POST,$con);
 }
 else{
 	$email = '';

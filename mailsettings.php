@@ -1,15 +1,15 @@
 <?php 
 require_once("config.php");
-checklogin();
+checklogin($con);
 if(isset($_POST['updatequs'])){
-	$del=mysql_fetch_array(mysql_query("select * from campaigns where `camid`='".$_REQUEST['camid']."'"));
+	$del=mysqli_fetch_array(mysqli_query($con, "select * from campaigns where `camid`='".$_REQUEST['camid']."'"), MYSQLI_ASSOC);
 	@extract($_POST);
-	mysql_query("UPDATE `campaigns` SET `subject`='".addslashes($subject)."',`from`='$from', `message`='".addslashes($message)."'  where `camid`=$del[camid]");
+	mysqli_query($con, "UPDATE `campaigns` SET `subject`='".addslashes($subject)."',`from`='$from', `message`='".addslashes($message)."'  where `camid`=$del[camid]");
 	setflash("<div class='success msg'>Successfully updated</div>,Your message has been successfully updated");
 	header("location: mailsettings.php");
 	exit;
 }
-$user=mysql_fetch_array(mysql_query("select * from users where uid=".$_SESSION['login']));
+$user=mysqli_fetch_array(mysqli_query($con, "select * from users where uid=".$_SESSION['login']), MYSQLI_ASSOC);
 ?>
 <?php require_once('header.php'); ?>
 <div class="contenttopbg"></div>
@@ -28,7 +28,7 @@ $user=mysql_fetch_array(mysql_query("select * from users where uid=".$_SESSION['
         </tr>
     </table>
 	<?php if(isset($_REQUEST['camid'])){ 	
-$edit=mysql_fetch_array(mysql_query("select * from campaigns where `camid`='".$_REQUEST['camid']."'"));
+$edit=mysqli_fetch_array(mysqli_query($con, "select * from campaigns where `camid`='".$_REQUEST['camid']."'"), MYSQLI_ASSOC);
 @extract($edit);
 	?> 
     <form action="" method="post" enctype="multipart/form-data" id="myForm">
@@ -57,13 +57,13 @@ $edit=mysql_fetch_array(mysql_query("select * from campaigns where `camid`='".$_
     <?php } else {  ?>
     
     <?php 
-    $camps = mysql_query("select * from campaigns");
+    $camps = mysqli_query($con, "select * from campaigns");
     ?>
     <table cellpadding="3" cellspacing="3" border="0" width="100%" class="content">
     <?php
 		echo '<tr><th align="center" valign="middle" width="30">#</th><th align="left" valign="middle">Campaign</th><th align="left" valign="middle">Actions</th></tr>';
 			$i = 0;
-			while($camp = mysql_fetch_array($camps)){
+			while($camp = mysqli_fetch_array($camps, MYSQLI_ASSOC)){
 				if($i>0)
 				echo "<tr><td align='center' valign='middle'>$i</td><td align='left' valign='middle'>".utf8_encode($camp[subject])."</td><td align='left' valign='middle'><a href='mailsettings.php?camid=$camp[camid]'>Edit</a></td></tr>";
 				$i++;

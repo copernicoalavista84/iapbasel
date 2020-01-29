@@ -62,7 +62,11 @@ function getFlash()
 //Checking for already login
 function checklogin(){
 	if(isset($_COOKIE['email']) &&  isset($_COOKIE['password'])){
-		$check=mysql_fetch_array(mysql_query("select * from users where email='".$_COOKIE['email']."' and status='Active'"));
+		$check=mysqli_fetch_array(mysqli_query($con, "select * from users where email='".$_COOKIE['email']."' and status='Active'"), MYSQLI_ASSOC);
+                
+                var_dump($check);
+                
+                
 		if(!empty($check)){
 			if($check['password']==$_COOKIE['password'])
 			{
@@ -85,7 +89,7 @@ function checklogin(){
 //Checking for already login
 function checkuser(){
 	if(isset($_COOKIE['email']) &&  isset($_COOKIE['password'])){
-		$check=mysql_fetch_array(mysql_query("select * from users where email='".$_COOKIE['email']."' and status='Active'"));
+		$check=mysqli_fetch_array(mysqli_query($con, "select * from users where email='".$_COOKIE['email']."' and status='Active'"));
 		if(!empty($check)){
 			if($check['password']==$_COOKIE['password'])
 			{
